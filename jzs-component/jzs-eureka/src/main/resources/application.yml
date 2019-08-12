@@ -1,0 +1,54 @@
+
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: eureka.jzs.com
+
+prod:
+  eureka:
+    server:
+      port: 8500
+    hostname: 172.21.247.53
+
+test:
+  eureka:
+    server:
+      port: 8500
+    hostname: 172.21.247.53
+
+# 公共配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: jzs-eureka
+
+management:
+  security:
+    enabled: true
+  context-path: /         #该配置属性用于修改原生端点的访问路径
+
+security:
+  basic:
+    enabled: true  # 启用SpringSecurity的安全配置项
+    path: ${management.context-path}
+  user:
+    name: admin
+    password: ${SECURITY_USER_PASSWORD:admin}
+
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: true # actuator的health接口是否需要安全保证
+  enabled: true #该配置属性用于控制所有的访问原生端点的可用性，设置为false的时候所有的原生端点都不可以访问，设置为true时所有的原生端点可以访问
+
+
+info:
+  artifact: jzs-eureka
+  name: '@project.name@'
+  description: '@project.description@'
+  version: '@project.version@'
+  spring-boot-version: '@spring.boot.version@'
+  spring-cloud-version: '@spring.cloud.version@'

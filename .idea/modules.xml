@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JZS.iml" filepath="$PROJECT_DIR$/JZS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-commons/jzs-common/jzs-common.iml" filepath="$PROJECT_DIR$/jzs-commons/jzs-common/jzs-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-commons/jzs-commons.iml" filepath="$PROJECT_DIR$/jzs-commons/jzs-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-component/jzs-component.iml" filepath="$PROJECT_DIR$/jzs-component/jzs-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-component/jzs-config/jzs-config.iml" filepath="$PROJECT_DIR$/jzs-component/jzs-config/jzs-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-commons/jzs-core/jzs-core.iml" filepath="$PROJECT_DIR$/jzs-commons/jzs-core/jzs-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-component/jzs-eureka/jzs-eureka.iml" filepath="$PROJECT_DIR$/jzs-component/jzs-eureka/jzs-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-service/jzs-manage/jzs-manage.iml" filepath="$PROJECT_DIR$/jzs-service/jzs-manage/jzs-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzs-service/jzs-service.iml" filepath="$PROJECT_DIR$/jzs-service/jzs-service.iml" />
+    </modules>
+  </component>
+</project>

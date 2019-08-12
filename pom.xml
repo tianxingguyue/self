@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.M2</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>jzs-commons</module>
+        <module>jzs-component</module>
+        <module>jzs-service</module>
+    </modules>
+    <groupId>com.job</groupId>
+    <artifactId>JZS</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>JZS</name>
+    <description>JZS父pom, 对jar版本，仓库进行管理</description>
+
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring.boot.admin.version>1.5.6</spring.boot.admin.version>
+        <!-- boot  cloud版本间产生冲突，不可随意变换版本 -->
+        <spring.boot.version>2.0.0.M2</spring.boot.version>
+        <spring.cloud.version>Finchley.M2</spring.cloud.version>
+        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
+        <mybatis.spring.boot.version>1.3.1</mybatis.spring.boot.version>
+        <fastjson.version>1.2.44</fastjson.version>
+        <alibaba.druid.version>1.1.6</alibaba.druid.version>
+        <mysql.version>5.1.35</mysql.version>
+        <pagehelper.starter.version>1.2.3</pagehelper.starter.version>
+        <pagehelper.version>5.1.2</pagehelper.version>
+        <springfox.swagger2.version>2.7.0</springfox.swagger2.version>
+        <lombok.version>1.16.20</lombok.version>
+        <dozer.version>5.5.1</dozer.version>
+        <commons.fileupload.version>1.3.3</commons.fileupload.version>
+        <commons.io.version>2.6</commons.io.version> <!-- excel -->
+        <commons.beanutils.version>1.9.3</commons.beanutils.version>
+        <shiro.version>1.4.0</shiro.version>
+    </properties>
+
+
+
+    <!--资源下载路径配置-->
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+        </repository>
+        <repository>
+            <id>oss</id>
+            <name>oss</name>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+    <!--依赖包-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--为了防止用Maven管理Spring项目时，不同的项目依赖了不同版本的Spring，可以使用Maven BOM来解决者一问题,在引入其他Spring依赖时，都无需指定版本-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+            <!--启用druid配置数据库-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba.druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.starter.version}</version>
+            </dependency>
+            <!--使用lombok之后，省去了许多没必要的get，set-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+
+
+            <!--  &lt;!&ndash;递归地将数据从一个对象复制到另一个对象 &ndash;&gt;-->
+              <dependency>
+                  <groupId>net.sf.dozer</groupId>
+                  <artifactId>dozer-spring</artifactId>
+                  <version>${dozer.version}</version>
+              </dependency>
+
+            <!-- swagger2 构建RESTful API和单元测试-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <!--web认证-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.7.0</version>
+            </dependency>
+
+            <!-- 上传文件 -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <!--Commons-beanutils是一款优秀的工具类库。不但提供了一种能够动态扩展属性的JavaBean，同一时候封装了Java的反射机制。-->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.beanutils.version}</version>
+            </dependency>
+            <!--json解析工具-->
+            <dependency>
+                <!--<groupId>com.netflix.feign</groupId>-->
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>9.5.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

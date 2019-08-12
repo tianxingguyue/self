@@ -1,0 +1,50 @@
+
+dev:
+  eureka:
+    server:
+      port: 8500
+    hostname: eureka.jzs.com
+prod:
+  eureka:
+    server:
+      port: 8500
+    hostname: 172.21.247.53
+
+test:
+  eureka:
+    server:
+      port: 8500
+    hostname: 172.21.247.53
+
+# 公共配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: jzs-config
+
+
+management:
+  security:
+    enabled: true
+  context-path: /
+
+security:
+  basic:
+    enabled: true
+    path: ${management.context-path}
+  user:
+    name: admin
+    password: admin
+endpoints:
+  health:
+    enabled: true
+    sensitive: true  # actuator的health接口是否需要安全保证
+
+info:
+  artifact: jzs-config
+  name: '@project.name@'
+  description: '@project.description@'
+  version: '@project.version@'
+  spring-boot-version: '@spring.boot.version@'
+  spring-cloud-version: '@spring.cloud.version@'

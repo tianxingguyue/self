@@ -1,0 +1,29 @@
+server:
+  port: 8505
+
+eureka:
+  instance:
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+    prefer-ip-address: true
+#    hostname: ${eureka.hostname:eureka.BeeExpress.com}    # 指定该Eureka实例的主机名
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+      management.context-path: ${management.context-path}
+  client:
+    service-url:
+      defaultZone: http://${dev.eureka.hostname}:${dev.eureka.server.port}/eureka/
+
+spring:
+  cloud:
+      config:
+        server:
+          git:
+            uri: https://github.com/tianxingguyue/BeeExpress
+            search-paths: BeeExpress-config-repo-dev/*/{application}
+  rabbitmq:
+      host: localhost
+      port: 5672
+      password: admin
+      username: admin
