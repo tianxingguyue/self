@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jzs-api" />
         <module name="jzs-common" />
         <module name="jzs-config" />
         <module name="jzs-core" />
         <module name="jzs-eureka" />
+        <module name="jzs-repository" />
         <module name="jzs-static" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JZS" target="1.8" />
+      <module name="jzs-api" target="1.8" />
       <module name="jzs-common" target="1.8" />
       <module name="jzs-commons" target="1.8" />
       <module name="jzs-component" target="1.8" />
@@ -22,6 +25,7 @@
       <module name="jzs-core" target="1.8" />
       <module name="jzs-eureka" target="1.8" />
       <module name="jzs-manage" target="1.8" />
+      <module name="jzs-repository" target="1.8" />
       <module name="jzs-service" target="1.8" />
       <module name="jzs-static" target="1.8" />
     </bytecodeTargetLevel>
